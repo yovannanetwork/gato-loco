@@ -1,13 +1,14 @@
 /*{
 	outline: 1px solid red;
-}*/
+}
 body{
 	margin: 0;
 	padding: 0;
 }
-/*-----header common-------*/
+/*-----header common- cabecera------*/
 header{
-	margin: 25px auto;
+	position: relative;
+	z-index: 2;
 }
 header ul li{
 	border-left: 2px solid black;
@@ -16,22 +17,50 @@ header ul li:first-child{
 	border-left: none;
 }
 /*--------pagina inicio ----*/
-.welcome h1{
-	margin: 10% auto;
+#welcome h1{
+	/*margin: 10% auto;*/
+	margin-bottom: 120px;
 }
-.welcome button{
+#welcome button{
 	background-color: white;
 	border: 1px solid black;
 	border-right: 4px solid black;
 	border-bottom: 4px solid black;
 }
-.welcome button a{
-	color: black;
+
+section{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: red;
+	opacity: 0;
+}
+.content{
+	display: table-cell;
+	vertical-align: middle;
+	background-color: yellow;
+}
+#welcome{
+	opacity: 2;
+	display: table;
+}
+.content button, a{
+	z-index: 1;
+	position: relative;
 }
 /*------pagina de los jugadores-----*/
-.jugadores form input{
+#jugadores form input{
 	width: 40%;
 }
+#jugadores{
+	background-color: green;
+}
+/*.jugadores{
+	position: relative;
+	opacity: 1;
+}*/
 /*---pagina del juego----*/
 .cuadro{
 	border: 2px solid black;
@@ -115,7 +144,6 @@ form #textarea{
 	border-right: 4px solid black;
 	border-bottom: 4px solid black;
 }
-
 
 
 

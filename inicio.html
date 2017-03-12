@@ -1,34 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>Gato loco</title>
-	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<meta charset="UTF-8">
+	<title>Gato loco</title>
 </head>
-<body>
+<body class="text-center">
 	<header>
-		<div class="container">
-			<div class="row">
-				<ul class="pull-right list-unstyled list-inline">
-					<li><a href="inicio.html">Inicio</a></li>
-					<li><a href="historial.html">Historial</a></li>
-				</ul>
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
 			</div>
-		</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav navbar-right pull-right">
+				<li><a href="#">Inicio</a></li>
+				<li><a href="#">Historial</a></li>
+			  </ul>
+			</div>
+		  </div>
+		</nav>
 	</header>
-	<section class="welcome">
-		<div class="container">
-			<div class="row">
-				<h1 class="text-center">Bienvenido Gato Loco!</h1>
-				<div class="boton-init text-center">
-					<button class="boton-init"><a href="#">Iniciar Juego</a></button>
-				</div>
+	<section id="init-section" class="visible">
+		<div class="inicio">
+			<div class="container">
+				<!--<div class="row">-->
+					<h1>Bienvenido a Gato Loco!</h1>
+					<button id="init-play">Iniciar Juego</button>
+				<!--</div>-->
 			</div>
 		</div>
 	</section>
+	<section id="jugadores" class="names">
+		<div class="inicio">
+			<div class="container">
+				<label for="">	Ingrese nombre del jugador 1:</label>
+				<input id="name1" type="text" placeholder="yovanna" autofocus><br>
+				<label for="">Ingrese nombre del jugador 2:</label>
+				<input id="name2" type="text" placeholder="yovanna">
+				<p><button id="start-play">Comenzar</button></p>
+			</div>
+		</div>
+	</section>
+	<section id="turno" class="game">
+		<div class="inicio">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4"></div>
+						<div class="col-md-4">
+						<div><span class="participante yovanna">yovanna</span><span class="participante paola">paola</span></div>
+							<table>
+								<tr>
+									<td id="s1" class="Cuadrado"> </td>
+									<td id="s2" class="Cuadrado"> </td>
+									<td id="s3" class="Cuadrado"> </td>
+									</tr>
+									<tr>
+									<td id="s4" class="Cuadrado"> </td>
+									<td id="s5" class="Cuadrado"> </td>
+									<td id="s6" class="Cuadrado"> </td>
+									</tr>
+									<tr>
+									<td id="s7" class="Cuadrado"> </td>
+									<td id="s8" class="Cuadrado"></td>
+									<td id="s9" class="Cuadrado"> </td>
+								</tr>
+							</table>
+						</div>
+						<div class="col-md-4">
+							<div class="movimiento">
+								<p>MOVIMIENTOS emanuel  0</p>
+								<p>movimientos emanuel 0</p>
+							</div>
+						</div>
+				</div>
+				<button id="new-game">New Game</button>
+			</div>
+		</div>
+	</section>
+	<section>
+		
+	</section>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="jquery/jquery.js"></script>
 </body>
 </html>

@@ -1,47 +1,84 @@
 $(document).ready(init);
+//la seccion esta en null
+var sectionActual = null;
+
+//para inicializar  en la seccion init-section
 function init(){
-	$('.boton-init').on('click', getonClick);
-	//validateName();
+	sectionActual = $('#init-section');
+	$('#init-play').click(clickGoPlayer);
+	$('#start-play').click(clickGoAccion);
 }
-function getonClick(){
-	var html = '<div class="container">'+
-				  '<div class="row">'+
-					'<form class="form-horizontal">'+
-					  '<div class="form-group">'+
-						'<label class="control-label col-sm-2" for="name">'+'Ingrese el nombre del jugador 2:'+'</label>'+
-						'<div class="col-sm-10">'+
-						  '<input type="name1" class="form-control" id="name" placeholder="Emmanuel" autofocus>'+
-						'</div>'+
-					  '</div>'+
-					  '<div class="form-group">'+
-						'<label class="control-label col-sm-2" for="pwd">'+'Ingrese el nombre del jugador 1:'+'</label>'+
-						'<div class="col-sm-10">'+ 
-						  '<input type="name" class="form-control" id="name2" placeholder="irene">'+
-						'</div>'+
-					  '</div>'+
-					  '<div class="form-group enviar">'+ 
-						'<div class="col-sm-offset-2 col-sm-10">'+
-						  '<button type="submit" class="btn btn-default" id="comenzar"><a href="jugador.html">comenzar</a></button>'+
-						'</div>'+
-					  '</div>'+
-					'</form>'+
-				  '</div>'+
-				'</div>';
-	$('.welcome').html(html);
-	validateName();
+function irNextSection(_idVisible){
+	var visible = $('.visible');
+	sectionActual.removeClass(visible);
+	var nextSection = $('.'+_idVisible);
+	nextSection.addClass('visible');
+	sectionActual = nextSection;
 }
-// validar campo nombre de los jugadores
-function validateName(){
-	$('#comenzar').click(function(){
-		var name1 = $('#name');
-		var name2 = $('#name1');
-		if(name1 != 0 && name2 != 0){
-			$('input').after('<span style="color: red;" id="span"><small>Ingresa tu nombre</small></span>');
-			name1.focus();
+function clickGoPlayer(){
+	irNextSection('names');
+	$('#name1, #name2').change(localStorageSet);
+}
+function clickGoAccion(){
+	irNextSection('game');
+	localStorageGet();
+	startGame();
+}
+function localStorageSet(evt){
+	var jugador1 = $('#name1').val();
+	var jugador2 = $('#name2').val();
+	localStorage.setItem('primerJugador', jugador1);
+	localStorage.setItem('segundoJugador', jugador2);
+}
+function localStorageGet(){
+	var name1 = localStorage.getItem('primerJugador');
+	var name2 = localStorage.getItem('segundoJugador');
+	$('.yovanna').text(name1);
+	$('.paola').text(name2);
+}
+
+function startGame(){
+	var conbinatioToWin = [
+    // Horizontals
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+
+    // Verticals
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+
+    // Diagonals
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
+	var cuadradoElegido = {
+		'X': [],
+		'O': []
+	}
+	var actualJugador = 'X';
+	$('td').on('click', function(evt){
+		//sconsole.log('bhdbv');
+		var cuadrado = $(evt.currentTarget);
+		cuadrado.addClass('cuadrado'+cuadradoElegido);
+		if(cuadradoElegido === 'X'){
+			cuadradoElegido = 'O';
 		}else{
-			$('#span').remove();
+			cuadradoElegido = 'X';
 		}
 	});
+	$.each(conbinatioToWin, function(_index, _conbination){
+		var hasAllSquare = true;
+		$.each(_conbination, function(_index, _square){
+			if($.inArray(_square, cuadradoElegido) === -1){
+				hasAllSquare = false;
+			}
+		});
+		if(hasAllSquare){
+			alert(cuadradoElegido+' dbbjcb');
+		}
+	})
 }
 
 
@@ -52,6 +89,27 @@ function validateName(){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*function clickCuadrado(){
+	$('td').click(function(){
+		$(this).html('<span>x</span>')
+	});
+}*/
 
 
 
