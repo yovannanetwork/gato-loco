@@ -1,3 +1,21 @@
+body{
+	color: white;
+	font-family: cursive;
+}
+button{
+	padding: 10px 20px;
+	color: black;
+	border-radius: 5px;
+	border-bottom-style: outset;
+	font-size: 18px;
+	background-color: rgb(183, 196, 158);
+	font-weight: bold;
+	cursor: pointer;
+	/*transition: all 0.30s linear;
+	-webkit-transition: all 0.20s linear;
+	-moz-transition: all 0.20s linear;
+	position: relative;*/	
+}
 header{
 	position: relative;
 	z-index: 100;
@@ -20,7 +38,9 @@ section{
 	margin: 10% auto
 }
 .inicio{
-	background-color: blue;
+	background-image: url(../img/fondo3.jpg);
+	background-size: cover;
+	/*background-color: blue;*/
 	vertical-align: middle;
 	display: table-cell;
 }
