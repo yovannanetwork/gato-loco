@@ -15,6 +15,7 @@ function init(){
 	$('#enviar-comment').click(clickBtnComment)
 	
 	$('#list-objet').on('click', '.btn', clickBotonItemJuego);
+	$('#new-game').on('click', createNewGame);
 }
 // funcion para ir a la siguiente seccion a travez de um
 function clickBotonItemJuego(){
@@ -23,6 +24,22 @@ function clickBotonItemJuego(){
 	irNextSection('comentarios');
 	getComentarios(idGame);
 	idActualJuego = idGame;
+}
+function createNewGame(){
+	onPostNewGame()
+}
+function onPostNewGame(){
+	var ganador = localStorage.getItem('ganador');
+	var perdedor = localStorage.getItem('perdedor');
+	var numberTurn = localStorage.getItem('numberTurn');
+	$.ajax({
+		url: 'http://test-ta.herokuapp.com/games',
+		type: 'POST',
+		data: {game: {winner_player:ganador, loser_player:perdedor, number_of_turns_to_win:numberTurn }}
+	}).success(function(_data){
+		console.log(_data);
+		clickCudros(_data);
+	});
 }
 function clickBtnComment(){
 	var name = $('#name-comment');
@@ -102,15 +119,7 @@ function getComentarios(_idGame){
 	})
 }
 // create a game 
-function getNewGame(_winner, _loser, _turn){
-	$.ajax({
-		url: 'http://test-ta.herokuapp.com/games',
-		type: 'POST',
-		data: {game: {winner_player:_winner, loser_player:_loser, number_of_turns_to_win:_turn }}
-	}).success(function(_data){
-		console.log(_data);
-	});
-}
+
 function dibujarHistorial(_datos){
 	var listaGame = $('#list-objet');
 	for(var i in _datos){

@@ -1,6 +1,4 @@
-*{
-	outline: 1px solid pink;
-}
+
 body{
 	color: white;
 	font-family: cursive;
@@ -95,7 +93,9 @@ table td:last-child{
 	color: black;
 	
 }
-
+.comentarios h2{
+	color: white;
+}
 
 
 
