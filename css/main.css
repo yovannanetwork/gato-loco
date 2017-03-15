@@ -124,27 +124,9 @@ section{
 .caja1 .parrafo1{
 	margin-top: 20px;
 }
-/*----pagina comentarios----*/
-.blanca{
-	margin: 10px;
-}
-.form{
-	width: 50%;
-	margin: auto;
-}
-.form #name{
-	border: 1px solid black;
-}
-form #textarea{
-	border: 1px solid black;
-}
-.enviar button{
-	background-color: white;
-	border: 1px solid black;
-	border-right: 4px solid black;
-	border-bottom: 4px solid black;
-}
+/*----section comentarios----*/
 
+/*   section comentarios----*/
 
 
 
