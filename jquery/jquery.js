@@ -28,10 +28,11 @@ function clickBtnComment(){
 	var name = $('#name-comment');
 	var commentText = $('#area-comment');
 	postComment(idActualJuego, name.val(), commentText.val());
-	name.val().focus();
+	name.focus();
 	name.val()=  "";
 }
 function postComment(_idGame, _name, _content){
+	var comentaries = $('#comentaries');
 	$.ajax({
 		url: 'http://test-ta.herokuapp.com/games/'+_idGame+'/comments',
 		type: 'POST',
@@ -118,10 +119,12 @@ function dibujarHistorial(_datos){
 	}
 }
 function dibujarComentario(_datos){
+	var comentaries = $('#comentaries');
 	var listComment = $('#lista-comment');
 	for(var i in _datos){
 		var html = '<li class="list-group-item">'+_datos[i].name +' dice:<p>'+_datos[i].content+'</p></li>';
 		listComment.append(html);
+		//comentaries.scrollTop = comentaries.scrollHeight;
 	}
 }
 
