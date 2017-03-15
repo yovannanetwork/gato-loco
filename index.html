@@ -22,7 +22,7 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			  <ul class="nav navbar-nav navbar-right pull-right">
 				<li><a href="#">Inicio</a></li>
-				<li><a href="#">Historial</a></li>
+				<li><a href="#" id="ir-historial">Historial</a></li>
 			  </ul>
 			</div>
 		  </div>
@@ -53,9 +53,12 @@
 		<div class="inicio">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-4"></div>
-						<div class="col-md-4">
-						<div><span class="participante yovanna">yovanna</span><span class="participante paola">paola</span></div>
+					<div class="col-md-4 col-sm-4"></div>
+					<div class="col-md-4 col-sm-7">
+						<div>
+						<p>Movimiento de<span class="participante yovanna">yovanna</span><span id="mov1"></span></p>
+						<p>Movimiento de<span class="participante paola">paola</span><span id="mov2"></span></p>
+						</div>
 							<table class="mytab">
 								<tr>
 									<td id="s1" class="Cuadrado"> </td>
@@ -73,21 +76,38 @@
 									<td id="s9" class="Cuadrado"> </td>
 								</tr>
 							</table>
-							<p id="message"></p>
-						</div>
-						<div class="col-md-4">
-							<div class="movimiento">
-								<p>MOVIMIENTOS emanuel  0</p>
-								<p>movimientos emanuel 0</p>
-							</div>
-						</div>
-				</div>
-				<button id="new-game">New Game</button>
+							<h3 id="message"></h3>					
+							<button id="new-game" class="">New Game</button>
+					</div>
+					<div class="col-md-4 col-sm-3">
+					</div>
+				</div>				
 			</div>
 		</div>
 	</section>
-	<section>
-		
+	<section class="historial">
+		<div class="inicio">
+			<div class="container">
+				<div class="row">
+				<h2>Historial</h2>
+					<ul class="list-group" id="list-objet" style="color: black;"></ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="comentarios">
+		<div class="inicio">
+			<div class="container">
+				<h2>Comentarios</h2>
+				<ul class="list-group" id="lista-comment">
+					
+				</ul>
+				<h4>Agregar comentario</h4>
+				<input type="text" class="form-control" id="name-comment" placeholder="Ingrese su nombre" autofocus>
+				<textarea name="submit" id="area-comment" class="form-control" rows="5"></textarea>
+				<p><button id="enviar-comment">Enviar</button></p>
+			</div>
+		</div>
 	</section>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="js/bootstrap.min.js"></script>

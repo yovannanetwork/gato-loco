@@ -1,3 +1,6 @@
+*{
+	outline: 1px solid pink;
+}
 body{
 	color: white;
 	font-family: cursive;
@@ -11,10 +14,6 @@ button{
 	background-color: rgb(183, 196, 158);
 	font-weight: bold;
 	cursor: pointer;
-	/*transition: all 0.30s linear;
-	-webkit-transition: all 0.20s linear;
-	-moz-transition: all 0.20s linear;
-	position: relative;*/	
 }
 header{
 	position: relative;
@@ -23,12 +22,14 @@ header{
 section{
 	width: 100%;
 	height: 100%;
-	background-color: yellow;
+	background-image: url(../img/fondo3.jpg);
+	background-size: cover;
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	display: none;
+	color: white;
 }
 .visible{
 	opacity: 1;
@@ -38,9 +39,9 @@ section{
 	margin: 10% auto
 }
 .inicio{
-	background-image: url(../img/fondo3.jpg);
+	/*background-image: url(../img/fondo3.jpg);
 	background-size: cover;
-	/*background-color: blue;*/
+	background-color: blue;*/
 	vertical-align: middle;
 	display: table-cell;
 }
@@ -48,7 +49,15 @@ section{
 label, input{
 	margin: 10px auto;
 }
+input{
+	color: black;
+}
 /*----section turno----*/
+table{
+	position: relative;
+	margin: auto 10%;
+	margin-left: 0;
+}
 table td{
     border:2px solid yellow;
 	width: 100px;
@@ -65,15 +74,22 @@ table td:last-child{
  }
  table tr:last-child td{
      border-bottom:none;
- }*/
+ }
 .movimiento{
 	margin-top: 25%;
-}
+}*/
 .game .participante{
-	margin: auto 20px;
+	margin: auto 10px;
 }
-
-
+/*-----section Historial----*/
+.historial{
+	/*background-image: url(../img/fondo3.jpg);
+	background-size: cover;*/
+	color: white;
+}
+.historial a{
+	color: yellow;
+}
 
 
 
