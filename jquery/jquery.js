@@ -1,5 +1,4 @@
 $(document).ready(init);
-//la seccion esta en null
 var sectionActual = null;
 
 var name1;
@@ -36,7 +35,7 @@ function onPostNewGame(){
 		url: 'http://test-ta.herokuapp.com/games',
 		type: 'POST',
 		data: {game: {winner_player:ganador, loser_player:perdedor, number_of_turns_to_win:numberTurn }}
-	}).success(function(_data){
+	}).done(function(_data){
 		console.log(_data);
 		clickCudros(_data);
 	});
@@ -54,7 +53,7 @@ function postComment(_idGame, _name, _content){
 		url: 'http://test-ta.herokuapp.com/games/'+_idGame+'/comments',
 		type: 'POST',
 		data: {comment:{name: _name, content: _content, game_id: _idGame }}
-	}).success(function(_data){
+	}).done(function(_data){
 		console.log(_data)
 		getComentarios(_idGame);
 	});
@@ -93,12 +92,11 @@ function localStorageGet(){
 	$('.yovanna').text(name1+':').val();
 	$('.paola').text(name2+':').val();
 }
-//  funcion AJAX
 function getHistorial(){
 	$.ajax({
 		url: 'http://test-ta.herokuapp.com/games',
 		type: 'GET'
-	}).success(function(_data){
+	}).done(function(_data){
 		//console.log(_data);
 		dibujarHistorial(_data);
 	})
@@ -113,12 +111,11 @@ function getComentarios(_idGame){
 	$.ajax({
 		url: 'http://test-ta.herokuapp.com/games/'+_idGame+'/comments',
 		type: 'GET'
-	}).success(function(_data){
+	}).done(function(_data){
 		//console.log(_datos);
 		dibujarComentario(_data);
 	})
 }
-// create a game 
 
 function dibujarHistorial(_datos){
 	var listaGame = $('#list-objet');
