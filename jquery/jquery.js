@@ -32,7 +32,7 @@ function onPostNewGame(){
 	var perdedor = localStorage.getItem('perdedor');
 	var numberTurn = localStorage.getItem('numberTurn');
 	$.ajax({
-		url: 'http://test-ta.herokuapp.com/games',
+		url: 'https://test-ta.herokuapp.com/games',
 		type: 'POST',
 		data: {game: {winner_player:ganador, loser_player:perdedor, number_of_turns_to_win:numberTurn }}
 	}).done(function(_data){
@@ -50,7 +50,7 @@ function clickBtnComment(){
 function postComment(_idGame, _name, _content){
 	var comentaries = $('#comentaries');
 	$.ajax({
-		url: 'http://test-ta.herokuapp.com/games/'+_idGame+'/comments',
+		url: 'https://test-ta.herokuapp.com/games/'+_idGame+'/comments',
 		type: 'POST',
 		data: {comment:{name: _name, content: _content, game_id: _idGame }}
 	}).done(function(_data){
@@ -94,7 +94,7 @@ function localStorageGet(){
 }
 function getHistorial(){
 	$.ajax({
-		url: 'http://test-ta.herokuapp.com/games',
+		url: 'https://test-ta.herokuapp.com/games',
 		type: 'GET'
 	}).done(function(_data){
 		//console.log(_data);
@@ -109,7 +109,7 @@ function getSinglePage(){
 }
 function getComentarios(_idGame){
 	$.ajax({
-		url: 'http://test-ta.herokuapp.com/games/'+_idGame+'/comments',
+		url: 'https://test-ta.herokuapp.com/games/'+_idGame+'/comments',
 		type: 'GET'
 	}).done(function(_data){
 		//console.log(_datos);
