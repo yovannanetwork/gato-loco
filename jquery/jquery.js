@@ -16,17 +16,20 @@ function init(){
 	$('#list-objet').on('click', '.btn', clickBotonItemJuego);
 	$('#new-game').on('click', createNewGame);
 }
-// funcion para ir a la siguiente seccion a travez de um
+// funcion para ir a la siguiente seccion comentario a travez de la funcion  irNexSection
 function clickBotonItemJuego(){
 	//console.log($(this).parent().data(_idGame));
 	var idGame = $(this).parent().data('id');
 	irNextSection('comentarios');
 	getComentarios(idGame);
 	idActualJuego = idGame;
+	$('.historial').hide();
 }
+//llamando al evento de enviar comentario
 function createNewGame(){
 	onPostNewGame()
 }
+//envia informacion de quien gano segun los movimientos al historial
 function onPostNewGame(){
 	var ganador = localStorage.getItem('ganador');
 	var perdedor = localStorage.getItem('perdedor');
@@ -40,6 +43,7 @@ function onPostNewGame(){
 		clickCudros(_data);
 	});
 }
+//click para enviar nombre y el texto de cmentario
 function clickBtnComment(){
 	var name = $('#name-comment');
 	var commentText = $('#area-comment');
@@ -47,6 +51,7 @@ function clickBtnComment(){
 	name.focus();
 	name.val()=  "";
 }
+//el ajax de enviar comentario
 function postComment(_idGame, _name, _content){
 	var comentaries = $('#comentaries');
 	$.ajax({
@@ -58,6 +63,7 @@ function postComment(_idGame, _name, _content){
 		getComentarios(_idGame);
 	});
 }
+// funcion al siguiente seccion
 function irNextSection(_idVisible){
 	var visible = $('.visible');
 	sectionActual.removeClass(visible);
